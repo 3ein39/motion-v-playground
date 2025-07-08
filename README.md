@@ -1,39 +1,84 @@
-# motion-v-playground
+# Motion-V Playground
 
-This template should help get you started developing with Vue 3 in Vite.
+A personal playground for exploring Vue animations with motion-v library.
 
-## Recommended IDE Setup
+## Features
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- **Scroll-triggered animations** - Animations that trigger when elements enter the viewport
+- **Basic animations** - Hover effects, entry animations, interactive buttons, and loading animations
+- **Modern Vue 3 setup** - Built with Vite, TypeScript, and Vue 3 Composition API
 
-## Type Support for `.vue` Imports in TS
+## Animation Examples
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+### Scroll-Triggered Animations
 
-## Customize configuration
+- Fade in from different directions
+- Scale animations with spring physics
+- Rotation effects
+- Staggered list animations
+- Complex combined animations
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+### Basic Animations
 
-## Project Setup
+- Hover effects (scale, rotate, lift)
+- Entry animations (fade, slide, scale)
+- Interactive buttons with spring physics
+- Loading animations (spinner, pulse, bounce)
+
+## Tech Stack
+
+- Vue 3 with Composition API
+- TypeScript
+- motion-v (Vue animation library)
+- Vite
+- Vue Router
+
+## Getting Started
+
+### Install dependencies
 
 ```sh
 pnpm install
 ```
 
-### Compile and Hot-Reload for Development
+### Run development server
 
 ```sh
 pnpm dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### Build for production
 
 ```sh
 pnpm build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### Lint code
 
 ```sh
 pnpm lint
 ```
+
+## Project Structure
+
+```
+src/
+├── components/
+│   └── ScrollAnimation.vue    # Scroll-triggered animation examples
+├── views/
+│   ├── AnimationView.vue      # Scroll animations page
+│   └── BasicAnimations.vue    # Basic animations page
+├── router/
+│   └── index.ts              # Vue Router configuration
+├── App.vue                   # Main app component
+└── main.ts                   # App entry point
+```
+
+## Usage
+
+Navigate between the two main sections:
+
+- **Scroll Animations**: Demonstrates various scroll-triggered animations
+- **Basic Animations**: Shows hover effects, entry animations, and interactive elements
+
+Perfect for experimenting with motion-v and learning Vue animation patterns!

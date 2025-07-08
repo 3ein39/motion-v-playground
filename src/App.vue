@@ -1,86 +1,86 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import { motion } from 'motion-v'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <div class="app-container">
+    <header>
+      <motion.nav :while-hover="{ scale: 1.02 }" class="navigation">
+        <RouterLink to="/">Scroll Animations</RouterLink>
+        <RouterLink to="/basic">Basic Animations</RouterLink>
+      </motion.nav>
+    </header>
 
-    <motion.div :while-hover="{ scale: 1.1 }" :while-press="{ scale: 0.95 }" class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </motion.div>
-  </header>
-
-  <RouterView />
+    <RouterView />
+  </div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
+.app-container {
+  font-family: 'Inter', sans-serif;
   color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-nav a {
+.navigation {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.navigation a {
   display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+  padding: 1rem 2rem;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
-nav a:first-of-type {
-  border: 0;
+.navigation a:hover {
+  color: white !important;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-@media (min-width: 1024px) {
+.navigation a.router-link-exact-active {
+  color: white !important;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
   header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+    padding: 1.5rem 1rem;
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
+  .navigation {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
+  .navigation a {
+    width: 250px;
+    text-align: center;
   }
 }
 </style>
