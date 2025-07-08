@@ -1,10 +1,15 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import { motion } from 'motion-v'
+import { motion, useScroll } from 'motion-v'
+
+const { scrollYProgress } = useScroll()
 </script>
 
 <template>
   <div class="app-container">
+    <!-- Scroll Progress Bar -->
+    <motion.div :style="{ scaleX: scrollYProgress }" class="scroll-progress" />
+
     <header>
       <motion.nav :while-hover="{ scale: 1.02 }" class="navigation">
         <RouterLink to="/">Scroll Animations</RouterLink>
@@ -17,6 +22,18 @@ import { motion } from 'motion-v'
 </template>
 
 <style scoped>
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transform-origin: 0%;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
+}
+
 .app-container {
   font-family: 'Inter', sans-serif;
   color: var(--color-text);
